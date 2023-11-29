@@ -45,6 +45,9 @@ class Stack{
 
 
     }
+    Node peek(){
+        return top;
+    }
 
 
 
@@ -82,7 +85,31 @@ class Queue{
     }
 
 
-    
+    int dequeue(Node head){
+        Node temp=head.next;
+
+
+        if(this.front==this.rear){
+            this.front=head;
+            this.rear=head;
+
+           head.next=null;
+           return temp.data;
+
+        }
+
+        head.next=this.front.next;
+        this.front=head.next;
+
+        return temp.data;
+
+
+
+
+    }
+
+
+
 
 
 
@@ -100,20 +127,30 @@ public class Stack_Queue {
         stack.push(30);
         stack.push(56);
 
+
+
+        System.out.println("Stack:");
         while(stack.top!=head){
-            System.out.println(stack.pop(head).data);
+            System.out.println(stack.peek().data);
+            stack.pop(head);
         }
         Node head1=new Node();
-        
+
         Queue queue=new Queue(head1);
-        
+
         queue.enqueue(head1,56);
         queue.enqueue(head1,30);
         queue.enqueue(head1,70);
-        
+
+        System.out.println("Queue:");
+
+        while (queue.front!=head1){
+            System.out.println(queue.dequeue(head1));
+        }
 
 
 
 
     }
 }
+
