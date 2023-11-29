@@ -30,7 +30,26 @@ class Stack{
 
 
     }
-    
+    Node pop(Node head){
+        Node temp=head;
+
+        while (temp.next!=top){
+            temp=temp.next;
+
+        }
+        this.top=temp;
+        temp=temp.next;
+        top.next=null;
+        return temp;
+
+
+
+    }
+    Node peek(){
+    return top;
+    }
+
+
 
 
 }
@@ -47,8 +66,17 @@ public class Stack_Queue {
         stack.push(30);
         stack.push(56);
 
+        while(stack.top!=head){
+            System.out.println(stack.peek().data);
+            stack.pop(head);
+        }
+
+
+
+
+
+
 
 
     }
 }
-
